@@ -16,6 +16,7 @@
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "swr": "^0.5.6",
+    "typeface-poppins": "^1.1.13",
     "zustand": "^3.5.7"
   },
   "devDependencies": {

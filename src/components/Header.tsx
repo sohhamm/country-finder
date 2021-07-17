@@ -16,6 +16,7 @@ import {
   MenuDivider,
   Button,
   InputRightElement,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import React from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -28,22 +29,30 @@ export default function Header() {
   const regionFilter = useCountryStore((state) => state.regionFilter);
   const searchTerm = useCountryStore((state) => state.searchTerm);
   const setSearchTerm = useCountryStore((state) => state.setSearchTerm);
+  const [isMobile] = useMediaQuery('(max-width: 450px)');
 
   return (
-    <Flex justify="space-between" py="2em" px="4em">
-      <InputGroup w="400px" h="50px" boxShadow="base">
+    <Flex
+      justify="space-between"
+      py="2em"
+      px={['1em', '3em', '4em']}
+      direction={isMobile ? 'column' : 'row'}
+    >
+      <InputGroup w="25em" h="50px" mr={isMobile ? 8 : 1} rounded="md">
         <InputLeftElement h="50px">
           <Icon as={AiOutlineSearch} boxSize={6} />
         </InputLeftElement>
         <Input
+          boxShadow="base"
           type="text"
           placeholder="Search for a country..."
           h="50px"
+          mr={isMobile ? 8 : 1}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         {searchTerm ? (
-          <InputRightElement h="50px">
+          <InputRightElement h="50px" mr={isMobile ? 8 : 1}>
             <Icon as={MdClose} boxSize={6} onClick={() => setSearchTerm('')} />
           </InputRightElement>
         ) : null}
@@ -63,10 +72,10 @@ export default function Header() {
               />
             )
           }
-          colorScheme="white"
-          color="black"
           boxShadow="base"
           h="50px"
+          mt={isMobile ? '2em' : ''}
+          mb={isMobile ? '1em' : ''}
         >
           {!regionFilter ? 'Filter by region' : regionFilter}
         </MenuButton>

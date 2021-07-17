@@ -23,7 +23,6 @@ export default function Home() {
 
   if (error) return <p>error fetching data..</p>;
   if (!countries) return <p>loading...</p>;
-  console.log(countries);
 
   return (
     <Box>
@@ -33,7 +32,7 @@ export default function Home() {
         spacing={16}
         mx="auto"
         w="100%"
-        px="4em"
+        px={['2em', '3em', '4em']}
       >
         {countries
           .filter((country: any) => {
