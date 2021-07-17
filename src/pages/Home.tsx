@@ -8,6 +8,7 @@ import { useCountryStore } from '../store/country-store';
 export default function Home() {
   const { countries, error } = useGetAllCountries();
   const setCountryNames = useCountryStore((state) => state.setCountryNames);
+  const regionFilter = useCountryStore((state) => state.regionFilter);
 
   React.useEffect(() => {
     let arr: string[] = [];
@@ -21,6 +22,7 @@ export default function Home() {
 
   if (error) return <p>error fetching data..</p>;
   if (!countries) return <p>loading...</p>;
+  console.log(countries);
 
   return (
     <Box>
@@ -32,9 +34,18 @@ export default function Home() {
         w="100%"
         px="4em"
       >
-        {countries.map((country: any) => (
-          <CountryCard country={country} key={country.name} />
-        ))}
+        {countries
+          .filter((country: any) => {
+            if (regionFilter) {
+              console.log(country.region);
+              return country.region === regionFilter;
+            } else {
+              return true;
+            }
+          })
+          .map((country: any) => (
+            <CountryCard country={country} key={country.name} />
+          ))}
       </SimpleGrid>
     </Box>
   );
