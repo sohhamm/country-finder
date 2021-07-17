@@ -23,7 +23,7 @@ import { HiChevronDown } from 'react-icons/hi';
 
 export default function Header() {
   return (
-    <Flex justify="space-between" pt="2em" px="4em">
+    <Flex justify="space-between" py="2em" px="4em">
       <InputGroup w="400px" h="50px" boxShadow="base">
         <InputLeftElement h="50px">
           <Icon as={AiOutlineSearch} boxSize={6} />
