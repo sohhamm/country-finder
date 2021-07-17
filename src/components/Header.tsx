@@ -38,6 +38,7 @@ export default function Header() {
           colorScheme="white"
           color="black"
           boxShadow="base"
+          h="50px"
         >
           Filter by region
         </MenuButton>
