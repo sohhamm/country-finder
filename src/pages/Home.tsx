@@ -1,4 +1,4 @@
-import { Box, SimpleGrid, useCounter } from '@chakra-ui/react';
+import { Box, SimpleGrid } from '@chakra-ui/react';
 import * as React from 'react';
 import CountryCard from '../components/CountryCard';
 import Header from '../components/Header';
@@ -9,6 +9,7 @@ export default function Home() {
   const { countries, error } = useGetAllCountries();
   const setCountryNames = useCountryStore((state) => state.setCountryNames);
   const regionFilter = useCountryStore((state) => state.regionFilter);
+  const searchTerm = useCountryStore((state) => state.searchTerm);
 
   React.useEffect(() => {
     let arr: string[] = [];
@@ -43,6 +44,9 @@ export default function Home() {
               return true;
             }
           })
+          .filter((country: any) =>
+            country.name.toLowerCase().includes(searchTerm.toLowerCase())
+          )
           .map((country: any) => (
             <CountryCard country={country} key={country.name} />
           ))}

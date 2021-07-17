@@ -15,6 +15,7 @@ import {
   MenuCommand,
   MenuDivider,
   Button,
+  InputRightElement,
 } from '@chakra-ui/react';
 import React from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -25,6 +26,8 @@ import { useCountryStore } from '../store/country-store';
 export default function Header() {
   const setRegionFilter = useCountryStore((state) => state.setRegionFilter);
   const regionFilter = useCountryStore((state) => state.regionFilter);
+  const searchTerm = useCountryStore((state) => state.searchTerm);
+  const setSearchTerm = useCountryStore((state) => state.setSearchTerm);
 
   return (
     <Flex justify="space-between" py="2em" px="4em">
@@ -32,7 +35,18 @@ export default function Header() {
         <InputLeftElement h="50px">
           <Icon as={AiOutlineSearch} boxSize={6} />
         </InputLeftElement>
-        <Input type="text" placeholder="Search for a country..." h="50px" />
+        <Input
+          type="text"
+          placeholder="Search for a country..."
+          h="50px"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        {searchTerm ? (
+          <InputRightElement h="50px">
+            <Icon as={MdClose} boxSize={6} onClick={() => setSearchTerm('')} />
+          </InputRightElement>
+        ) : null}
       </InputGroup>
       <Menu>
         <MenuButton
