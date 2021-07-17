@@ -43,35 +43,35 @@ export default function CountryDetails() {
           </Link>
         </Flex>
         <Image src={country[0].flag} />
-        <Heading mt={8} mb={6} w="100%">
+        <Heading mt={8} mb={6} w="100%" fontFamily="Poppins, sans serif">
           {country[0].name}
         </Heading>
-        <Text mb={2} w="100%">
+        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
           Native name: {country[0].nativeName}
         </Text>
-        <Text mb={2} w="100%">
+        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
           Population: {country[0].population}
         </Text>
-        <Text mb={2} w="100%">
+        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
           Region: {country[0].region}
         </Text>
 
-        <Text mb={2} w="100%">
+        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
           Sub Region: {country[0].subregion}
         </Text>
-        <Text w="100%" mb={12}>
+        <Text w="100%" mb={12} fontFamily="Poppins, sans serif">
           Capital: {country[0].capital}
         </Text>
-        <Text mb={2} w="100%">
+        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
           Top level domain: {country[0].topLevelDomain[0]}
         </Text>
-        <Text mb={2} w="100%">
+        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
           Currencies:{` `}
           {country[0].currencies.map((el: any, idx: number) => (
             <span key={idx}>{el.name}</span>
           ))}
         </Text>
-        <Text w="100%" mb={8}>
+        <Text w="100%" mb={8} fontFamily="Poppins, sans serif">
           Languages:{` `}
           {country[0].languages.map((el: any, idx: number) => (
             <span key={idx}>
@@ -81,10 +81,12 @@ export default function CountryDetails() {
           ))}
         </Text>
         <Flex w="100%" mt={4} align="center" direction="column">
-          <Text w="100%">Border Countries:</Text>
+          <Text w="100%" fontFamily="Poppins, sans serif">
+            Border Countries:
+          </Text>
           <Flex px="1em" flexWrap="wrap">
             {country[0].borders.map((border: string, idx: number) => (
-              <Button key={idx} ml={2}>
+              <Button key={idx} ml={2} fontFamily="Poppins, sans serif">
                 {border}
               </Button>
             ))}
@@ -106,6 +108,7 @@ export default function CountryDetails() {
             leftIcon={<Icon as={MdKeyboardBackspace} boxSize={6} />}
             boxShadow="base"
             w={32}
+            fontFamily="Poppins, sans serif"
           >
             Back
           </Button>
@@ -114,29 +117,39 @@ export default function CountryDetails() {
       <Flex w="100%" justify="space-between" pl="4em" pr="3em">
         <Image src={country[0].flag} w="450px" h="350px" />
         <Flex direction="column" mr="2em">
-          <Heading mt={8} mb={2}>
+          <Heading mt={8} mb={2} fontFamily="Poppins, sans serif">
             {country[0].name}
           </Heading>
           <Flex direction="row" w="100%" mb={2}>
             <Flex direction="column" w="50%" mt={5} mr={16}>
-              <Text mb={2}>Native name: {country[0].nativeName}</Text>
-              <Text mb={2}>Population: {country[0].population}</Text>
-              <Text mb={2}>Region: {country[0].region}</Text>
+              <Text mb={2} fontFamily="Poppins, sans serif">
+                Native name: {country[0].nativeName}
+              </Text>
+              <Text mb={2} fontFamily="Poppins, sans serif">
+                Population: {country[0].population}
+              </Text>
+              <Text mb={2} fontFamily="Poppins, sans serif">
+                Region: {country[0].region}
+              </Text>
 
-              <Text mb={2}>Sub Region: {country[0].subregion}</Text>
-              <Text>Capital: {country[0].capital}</Text>
+              <Text mb={2} fontFamily="Poppins, sans serif">
+                Sub Region: {country[0].subregion}
+              </Text>
+              <Text fontFamily="Poppins, sans serif">
+                Capital: {country[0].capital}
+              </Text>
             </Flex>
             <Flex direction="column" w="50%" mt={5} pr={4}>
-              <Text mb={2}>
+              <Text mb={2} fontFamily="Poppins, sans serif">
                 Top level domain: {country[0].topLevelDomain[0]}
               </Text>
-              <Text mb={2}>
+              <Text mb={2} fontFamily="Poppins, sans serif">
                 Currencies:{` `}
                 {country[0].currencies.map((el: any, idx: number) => (
                   <span key={idx}>{el.name}</span>
                 ))}
               </Text>
-              <Text>
+              <Text fontFamily="Poppins, sans serif">
                 Languages:{` `}
                 {country[0].languages.map((el: any, idx: number) => (
                   <span key={idx}>
@@ -150,7 +163,7 @@ export default function CountryDetails() {
           <Flex w="100%" mt={4} align="center">
             Border Countries:{' '}
             {country[0].borders.map((border: string, idx: number) => (
-              <Button key={idx} ml={2}>
+              <Button key={idx} ml={2} fontFamily="Poppins, sans serif">
                 {border}
               </Button>
             ))}

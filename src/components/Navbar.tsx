@@ -23,9 +23,8 @@ export default function Navbar() {
       px={['1em', '3em', '4em']}
       py="1.5em"
       boxShadow="0px 0px 5px 0px gray"
-      fontFamily="Poppins, sans serif"
     >
-      <Heading size="md" fontWeight="bold">
+      <Heading size="md" fontWeight="bold" fontFamily="Poppins, sans serif">
         Where in the world?
       </Heading>
       <Flex align="center" justify="center">
@@ -39,10 +38,6 @@ export default function Navbar() {
           onClick={toggleMode}
           icon={<SwitchIcon />}
         />
-
-        {/* <Text ml={1} mt={1}>
-          Dark Mode
-        </Text> */}
       </Flex>
     </Flex>
   );

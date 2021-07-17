@@ -4,11 +4,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 import CountryDetails from './pages/CountryDetails';
 import Home from './pages/Home';
-import { useCountryStore } from './store/country-store';
 
 export default function App() {
-  const countryNames = useCountryStore((state) => state.countryNames);
-
   return (
     <Router>
       <Navbar />

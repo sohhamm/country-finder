@@ -50,6 +50,7 @@ export default function Header() {
           mr={isMobile ? 8 : 1}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          fontFamily="Poppins, sans serif"
         />
         {searchTerm ? (
           <InputRightElement h="50px" mr={isMobile ? 8 : 1}>
@@ -76,6 +77,7 @@ export default function Header() {
           h="50px"
           mt={isMobile ? '2em' : ''}
           mb={isMobile ? '1em' : ''}
+          fontFamily="Poppins, sans serif"
         >
           {!regionFilter ? 'Filter by region' : regionFilter}
         </MenuButton>

@@ -20,15 +20,24 @@ export default function CountryCard({ country }: any) {
           objectFit="cover"
         />
         <Flex direction="column" w="100%" px="1.5em" py="1.5em">
-          <Text fontWeight="bold" size="lg" mb="1em">
+          <Text
+            fontWeight="bold"
+            size="lg"
+            mb="1em"
+            fontFamily="Poppins, sans serif"
+          >
             {country.name}
           </Text>
 
-          <Text>Population: {country.population}</Text>
+          <Text fontFamily="Poppins, sans serif">
+            Population: {country.population}
+          </Text>
 
-          <Text>Region: {country.region}</Text>
+          <Text fontFamily="Poppins, sans serif">Region: {country.region}</Text>
 
-          <Text>Capital: {country.capital}</Text>
+          <Text fontFamily="Poppins, sans serif">
+            Capital: {country.capital}
+          </Text>
         </Flex>
       </Flex>
     </Link>
