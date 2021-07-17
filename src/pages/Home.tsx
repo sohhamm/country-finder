@@ -25,7 +25,13 @@ export default function Home() {
   return (
     <Box>
       <Header />
-      <SimpleGrid columns={4} spacing={16} mx="auto" w="100%" px="4em">
+      <SimpleGrid
+        columns={{ sm: 1, md: 3, lg: 4 }}
+        spacing={16}
+        mx="auto"
+        w="100%"
+        px="4em"
+      >
         {countries.map((country: any) => (
           <CountryCard country={country} key={country.name} />
         ))}
