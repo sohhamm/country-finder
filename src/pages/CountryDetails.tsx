@@ -17,7 +17,7 @@ export default function CountryDetails() {
   const { country, error } = useCountry(slug);
   const [isMobile] = useMediaQuery('(max-width: 441px)');
 
-  if (error) return <p>'error fetching data..'</p>;
+  if (error) return <p>error fetching data <Button> Refresh </Button></p>;
   if (!country) return <p>'loading...'</p>;
 
   console.log(country);
