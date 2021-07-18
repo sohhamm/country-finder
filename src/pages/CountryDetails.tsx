@@ -11,16 +11,23 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useCountry } from '../data/use-country';
 import { MdKeyboardBackspace } from 'react-icons/md';
+import { useCountryStore } from '../store/country-store';
 
 export default function CountryDetails() {
   const { slug }: any = useParams();
   const { country, error } = useCountry(slug);
   const [isMobile] = useMediaQuery('(max-width: 441px)');
+  const countryNames = useCountryStore((state) => state.countryNames);
 
-  if (error) return <p>error fetching data <Button> Refresh </Button></p>;
+  if (error)
+    return (
+      <p>
+        error fetching data <Button> Refresh </Button>
+      </p>
+    );
   if (!country) return <p>'loading...'</p>;
 
-  console.log(country);
+  console.log(countryNames);
 
   if (isMobile)
     return (

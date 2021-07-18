@@ -12,10 +12,13 @@ export default function Home() {
   const searchTerm = useCountryStore((state) => state.searchTerm);
 
   React.useEffect(() => {
-    let arr: string[] = [];
+    let arr: any[] = [];
     if (countries) {
       countries.forEach((country: any) => {
-        arr.push(country.name);
+        const { alpha3Code, name } = country;
+        const obj: any = {};
+        obj[alpha3Code] = name;
+        arr.push(obj);
       });
       setCountryNames(arr);
     }
