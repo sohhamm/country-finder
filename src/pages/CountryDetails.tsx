@@ -107,14 +107,16 @@ export default function CountryDetails() {
           <Flex px="1em" flexWrap="wrap">
             {borders.map(
               (border: { name: string; code: string }, idx: number) => (
-                <Button
-                  key={idx}
-                  ml={2}
-                  fontFamily="Poppins, sans serif"
-                  mb={2}
-                >
-                  {border.name}
-                </Button>
+                <Link to={`/${border.name}`} key={idx}>
+                  <Button
+                    key={idx}
+                    ml={2}
+                    fontFamily="Poppins, sans serif"
+                    mb={2}
+                  >
+                    {border.name}
+                  </Button>
+                </Link>
               )
             )}
           </Flex>
