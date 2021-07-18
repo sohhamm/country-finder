@@ -18,6 +18,7 @@ export default function CountryCard({ country }: any) {
           h="170px"
           roundedTop="md"
           objectFit="cover"
+          loading="lazy"
         />
         <Flex direction="column" w="100%" px="1.5em" py="1.5em">
           <Text

@@ -7,20 +7,19 @@ import { useCountryStore } from '../store/country-store';
 
 export default function Home() {
   const { countries, error } = useGetAllCountries();
-  const setCountryNames = useCountryStore((state) => state.setCountryNames);
   const regionFilter = useCountryStore((state) => state.regionFilter);
   const searchTerm = useCountryStore((state) => state.searchTerm);
+  const setBorderCountries = useCountryStore(
+    (state) => state.setBorderCountries
+  );
 
   React.useEffect(() => {
-    let arr: any[] = [];
     if (countries) {
+      const arr: any = [];
       countries.forEach((country: any) => {
-        const { alpha3Code, name } = country;
-        const obj: any = {};
-        obj[alpha3Code] = name;
-        arr.push(obj);
+        arr.push({ name: country.name, code: country.alpha3Code });
       });
-      setCountryNames(arr);
+      setBorderCountries(arr);
     }
   }, [countries]);
 

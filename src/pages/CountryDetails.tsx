@@ -14,20 +14,24 @@ import { MdKeyboardBackspace } from 'react-icons/md';
 import { useCountryStore } from '../store/country-store';
 
 export default function CountryDetails() {
+  const [borders, setBorders] = React.useState([]);
   const { slug }: any = useParams();
   const { country, error } = useCountry(slug);
   const [isMobile] = useMediaQuery('(max-width: 441px)');
-  const countryNames = useCountryStore((state) => state.countryNames);
+  const borderCountries = useCountryStore((state) => state.borderCountries);
+
+  console.log(borderCountries);
 
   if (error)
     return (
       <p>
-        error fetching data <Button> Refresh </Button>
+        error fetching data{' '}
+        <Button onClick={() => location.reload()}> Refresh </Button>
       </p>
     );
   if (!country) return <p>'loading...'</p>;
 
-  console.log(countryNames);
+  console.log(borderCountries);
 
   if (isMobile)
     return (
@@ -123,7 +127,11 @@ export default function CountryDetails() {
       </Flex>
       <Flex w="100%" justify="space-between" pl="4em" pr="3em">
         <Image src={country[0].flag} w="450px" h="350px" />
-        <Flex direction="column" mr="2em">
+        <Flex
+          direction="column"
+          mr="2em"
+          ml={country[0].borders.length > 5 ? '8em' : ''}
+        >
           <Heading mt={8} mb={2} fontFamily="Poppins, sans serif">
             {country[0].name}
           </Heading>
@@ -167,14 +175,23 @@ export default function CountryDetails() {
               </Text>
             </Flex>
           </Flex>
-          <Flex w="100%" mt={4} align="center">
-            Border Countries:{' '}
-            {country[0].borders.map((border: string, idx: number) => (
-              <Button key={idx} ml={2} fontFamily="Poppins, sans serif">
-                {border}
-              </Button>
-            ))}
-          </Flex>
+          {country[0].borders.length ? (
+            <Flex w="100%" mt={4} align="center">
+              <Text fontWeight="semibold">Border Countries: </Text>
+              <Flex flexWrap="wrap">
+                {country[0].borders.map((border: string, idx: number) => (
+                  <Button
+                    key={idx}
+                    ml={2}
+                    fontFamily="Poppins, sans serif"
+                    mb={2}
+                  >
+                    {border}
+                  </Button>
+                ))}
+              </Flex>
+            </Flex>
+          ) : null}
         </Flex>
       </Flex>
     </Flex>
