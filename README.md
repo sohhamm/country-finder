@@ -24,22 +24,14 @@ Users should be able to:
 
 ### Screenshot
 
-![search-countries-desktop-light](./public/sc1.jpg)
-![search-countries-desktop-dark](./public/sc2.jpg)
-![search-countries-desktop-country-details-light](./public/sc3.jpg)
-![search-countries-desktop-country-details-dark](./public/sc4.jpg)
-![search-countries-mobile-light](./public/sc5.jpg)
-![search-countries-mobile-dark](./public/sc6.jpg)
-![search-countries-mobile-country-details-light](./public/sc7.jpg)
-![search-countries-mobile-country-details-dark](./public/sc8.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+- ![search-countries-desktop-light](./public/sc1.png)
+- ![search-countries-desktop-dark](./public/sc2.png)
+- ![search-countries-desktop-country-details-light](./public/sc3.png)
+- ![search-countries-desktop-country-details-dark](./public/sc4.png)
+- ![search-countries-mobile-light](./public/sc5.png)
+- ![search-countries-mobile-dark](./public/sc6.png)
+- ![search-countries-mobile-country-details-light](./public/sc7.png)
+- ![search-countries-mobile-country-details-dark](./public/sc8.png)
 
 ### Links
 
