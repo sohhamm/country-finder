@@ -58,5 +58,5 @@ I will focus on solving more user stories and improving the UX.
 ## Author
 
 - Instagram - [@codebandit](https://www.instagram.com/codebandit/)
-- LinkedIN - [sohhamm](linkedin.com/in/sohhamm/)
-- Twitter - [@sohhamm](https://www.twitter.com/sohhamm)
+- LinkedIN - [Soham Sarkar](https://www.linkedin.com/in/sohhamm/)
+- Twitter - [@sohhamm\_](https://www.twitter.com/sohhamm_)
