@@ -4,15 +4,12 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-  - [Built with](#built-with)
-  - [Continued development](#continued-development)
+- [The challenge](#the-challenge)
+- [Screenshot](#screenshot)
+- [Links](#links)
+- [Built with](#built-with)
+- [Continued development](#continued-development)
 - [Author](#author)
-
-## Overview
 
 ### The challenge
 
@@ -27,7 +24,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![search-countries-desktop-light](./public/sc1.jpg)
+![search-countries-desktop-dark](./public/sc2.jpg)
+![search-countries-desktop-country-details-light](./public/sc3.jpg)
+![search-countries-desktop-country-details-dark](./public/sc4.jpg)
+![search-countries-mobile-light](./public/sc5.jpg)
+![search-countries-mobile-dark](./public/sc6.jpg)
+![search-countries-mobile-country-details-light](./public/sc7.jpg)
+![search-countries-mobile-country-details-dark](./public/sc8.jpg)
 
 Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
