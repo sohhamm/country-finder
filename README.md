@@ -57,6 +57,6 @@ I will focus on solving more user stories and improving the UX.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Instagram - [@codebandit](https://www.instagram.com/codebandit/)
+- LinkedIN - [sohhamm](linkedin.com/in/sohhamm/)
+- Twitter - [@sohhamm](https://www.twitter.com/sohhamm)
