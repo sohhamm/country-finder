@@ -1,16 +1,16 @@
-import useSWR from 'swr';
+import useSWR from 'swr'
 
 const getCountryByName = async (url: string) => {
   try {
-    return await (await fetch(url)).json();
+    return await (await fetch(url)).json()
   } catch (err) {
-    throw new Error('error getting countries');
+    throw new Error('error getting countries')
   }
-};
+}
 
 export const useCountry = (name: string) => {
-  const url = `https://restcountries.eu/rest/v2/name/${name}?fullText=true`;
-  const { data, error } = useSWR(url, getCountryByName);
+  const url = `https://restcountries.com/v2/name/${name}?fullText=true`
+  const {data, error} = useSWR(url, getCountryByName)
 
-  return { country: data, error };
-};
+  return {country: data, error}
+}

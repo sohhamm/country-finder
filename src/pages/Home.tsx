@@ -1,36 +1,34 @@
-import { Box, SimpleGrid } from '@chakra-ui/react';
-import * as React from 'react';
-import CountryCard from '../components/CountryCard';
-import Header from '../components/Header';
-import { useGetAllCountries } from '../data/use-countries';
-import { useCountryStore } from '../store/country-store';
+import {Box, SimpleGrid} from '@chakra-ui/react'
+import * as React from 'react'
+import CountryCard from '../components/CountryCard'
+import Header from '../components/Header'
+import {useGetAllCountries} from '../data/use-countries'
+import {useCountryStore} from '../store/country-store'
 
 export default function Home() {
-  const { countries, error } = useGetAllCountries();
-  const regionFilter = useCountryStore((state) => state.regionFilter);
-  const searchTerm = useCountryStore((state) => state.searchTerm);
-  const setBorderCountries = useCountryStore(
-    (state) => state.setBorderCountries
-  );
+  const {countries, error} = useGetAllCountries()
+  const regionFilter = useCountryStore(state => state.regionFilter)
+  const searchTerm = useCountryStore(state => state.searchTerm)
+  const setBorderCountries = useCountryStore(state => state.setBorderCountries)
 
   React.useEffect(() => {
     if (countries) {
-      const arr: any = [];
+      const arr: any = []
       countries.forEach((country: any) => {
-        arr.push({ name: country.name, code: country.alpha3Code });
-      });
-      setBorderCountries(arr);
+        arr.push({name: country.name, code: country.alpha3Code})
+      })
+      setBorderCountries(arr)
     }
-  }, [countries]);
+  }, [countries])
 
-  if (error) return <p>error fetching data..</p>;
-  if (!countries) return <p>loading...</p>;
+  if (error) return <p>error fetching data..</p>
+  if (!countries) return <p>loading...</p>
 
   return (
     <Box>
       <Header />
       <SimpleGrid
-        columns={{ sm: 1, md: 3, lg: 4 }}
+        columns={{sm: 1, md: 3, lg: 4}}
         spacing={16}
         mx="auto"
         w="100%"
@@ -39,19 +37,18 @@ export default function Home() {
         {countries
           .filter((country: any) => {
             if (regionFilter) {
-              console.log(country.region);
-              return country.region === regionFilter;
+              return country.region === regionFilter
             } else {
-              return true;
+              return true
             }
           })
           .filter((country: any) =>
-            country.name.toLowerCase().includes(searchTerm.toLowerCase())
+            country.name.toLowerCase().includes(searchTerm.toLowerCase()),
           )
           .map((country: any) => (
             <CountryCard country={country} key={country.name} />
           ))}
       </SimpleGrid>
     </Box>
-  );
+  )
 }

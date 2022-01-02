@@ -1,16 +1,16 @@
-import useSWR from 'swr';
+import useSWR from 'swr'
 
-const URL = 'https://restcountries.eu/rest/v2/all';
+const URL = 'https://restcountries.com/v2/all'
 
 const getAllCountries = async () => {
   try {
-    return await (await fetch(URL)).json();
+    return await (await fetch(URL)).json()
   } catch (err) {
-    throw new Error('error getting countries');
+    throw new Error('error getting countries')
   }
-};
+}
 
 export const useGetAllCountries = () => {
-  const { data, error } = useSWR('countries', getAllCountries);
-  return { countries: data, error };
-};
+  const {data, error} = useSWR('countries', getAllCountries)
+  return {countries: data, error}
+}
