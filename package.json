@@ -7,7 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.5",
+    "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": "^4",
@@ -15,9 +15,9 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
-    "swr": "^0.5.6",
+    "swr": "^1.1.2",
     "typeface-poppins": "^1.1.13",
-    "zustand": "^3.5.7"
+    "zustand": "^3.6.8"
   },
   "devDependencies": {
     "@types/react": "^17.0.14",
