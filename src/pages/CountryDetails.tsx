@@ -6,41 +6,38 @@ import {
   Image,
   Text,
   useMediaQuery,
-} from '@chakra-ui/react';
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useCountry } from '../data/use-country';
-import { MdKeyboardBackspace } from 'react-icons/md';
-import { useCountryStore } from '../store/country-store';
+} from '@chakra-ui/react'
+import React from 'react'
+import {Link, useParams} from 'react-router-dom'
+import {useCountry} from '../data/use-country'
+import {MdKeyboardBackspace} from 'react-icons/md'
+import {useCountryStore} from '../store/country-store'
 
 export default function CountryDetails() {
-  const [borders, setBorders] = React.useState<any>([]);
-  const { slug }: any = useParams();
-  const { country, error } = useCountry(slug);
-  const [isMobile] = useMediaQuery('(max-width: 441px)');
-  const borderCountries = useCountryStore((state) => state.borderCountries);
-
-  // console.log(borderCountries);
+  const [borders, setBorders] = React.useState<any>([])
+  const {slug}: any = useParams()
+  const {country, error} = useCountry(slug)
+  const [isMobile] = useMediaQuery('(max-width: 441px)')
+  const borderCountries = useCountryStore(state => state.borderCountries)
 
   React.useEffect(() => {
     if (country) {
       const filter = borderCountries.filter((c: any) =>
-        country[0].borders.includes(c.code)
-      );
-      setBorders(filter);
+        country[0].borders.includes(c.code),
+      )
+      setBorders(filter)
     }
-  }, [country, setBorders]);
-
-  // console.log(borders);
+  }, [country, setBorders])
 
   if (error)
     return (
       <p>
-        error fetching data{' '}
+        error fetching data
         <Button onClick={() => location.reload()}> Refresh </Button>
       </p>
-    );
-  if (!country) return <p>'loading...'</p>;
+    )
+
+  if (!country) return <p>loading...</p>
 
   if (isMobile)
     return (
@@ -106,7 +103,7 @@ export default function CountryDetails() {
           </Text>
           <Flex px="1em" flexWrap="wrap">
             {borders.map(
-              (border: { name: string; code: string }, idx: number) => (
+              (border: {name: string; code: string}, idx: number) => (
                 <Link to={`/${border.name}`} key={idx}>
                   <Button
                     key={idx}
@@ -117,12 +114,12 @@ export default function CountryDetails() {
                     {border.name}
                   </Button>
                 </Link>
-              )
+              ),
             )}
           </Flex>
         </Flex>
       </Flex>
-    );
+    )
 
   return (
     <Flex
@@ -148,7 +145,7 @@ export default function CountryDetails() {
         <Flex
           direction="column"
           mr="2em"
-          ml={country[0].borders.length > 5 ? '8em' : ''}
+          ml={country[0].borders?.length > 5 ? '8em' : ''}
         >
           <Heading mt={8} mb={2} fontFamily="Poppins, sans serif">
             {country[0].name}
@@ -193,12 +190,12 @@ export default function CountryDetails() {
               </Text>
             </Flex>
           </Flex>
-          {country[0].borders.length ? (
+          {country[0].borders?.length ? (
             <Flex w="100%" mt={4} align="center">
               <Text fontWeight="semibold">Border Countries: </Text>
               <Flex flexWrap="wrap">
                 {borders.map(
-                  (border: { name: string; code: string }, idx: number) => (
+                  (border: {name: string; code: string}, idx: number) => (
                     <Link to={`/${border.name}`} key={idx}>
                       <Button
                         ml={2}
@@ -209,7 +206,7 @@ export default function CountryDetails() {
                         {border.name}
                       </Button>
                     </Link>
-                  )
+                  ),
                 )}
               </Flex>
             </Flex>
@@ -217,5 +214,5 @@ export default function CountryDetails() {
         </Flex>
       </Flex>
     </Flex>
-  );
+  )
 }
