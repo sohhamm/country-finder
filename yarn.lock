@@ -1827,6 +1827,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"country-finder-app@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "country-finder-app@workspace:."
+  dependencies:
+    "@chakra-ui/react": ^2.2.4
+    "@emotion/react": ^11
+    "@emotion/styled": ^11
+    "@types/react": ^18.0.15
+    "@types/react-dom": ^18.0.6
+    "@vitejs/plugin-react": ^2.0.0
+    framer-motion: 6
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-icons: ^4.4.0
+    react-router-dom: ^6.3.0
+    swr: ^1.3.0
+    typeface-poppins: ^1.1.13
+    typescript: ^4.7.4
+    vite: ^3.0.0
+    zustand: ^4.0.0-rc.1
+  languageName: unknown
+  linkType: soft
+
 "css-box-model@npm:1.2.1":
   version: 1.2.1
   resolution: "css-box-model@npm:1.2.1"
@@ -3195,29 +3218,6 @@ __metadata:
   checksum: d79192eeaa12abef860c195ea45d37cbf2bbf5f66e3c4dcd16f54a7da53b17788a70d109ee3d3dde1a0fd50e6a8fc171f4300356c5aee4fc0171de526bf35f8a
   languageName: node
   linkType: hard
-
-"search-countries@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "search-countries@workspace:."
-  dependencies:
-    "@chakra-ui/react": ^2.2.4
-    "@emotion/react": ^11
-    "@emotion/styled": ^11
-    "@types/react": ^18.0.15
-    "@types/react-dom": ^18.0.6
-    "@vitejs/plugin-react": ^2.0.0
-    framer-motion: 6
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-icons: ^4.4.0
-    react-router-dom: ^6.3.0
-    swr: ^1.3.0
-    typeface-poppins: ^1.1.13
-    typescript: ^4.7.4
-    vite: ^3.0.0
-    zustand: ^4.0.0-rc.1
-  languageName: unknown
-  linkType: soft
 
 "semver@npm:^6.3.0":
   version: 6.3.0

@@ -5,7 +5,6 @@ Search for any country and get it's information 🔎
 ## Table of contents
 
 - [Stories](#stories)
-- [Screenshot](#screenshot)
 - [Links](#links)
 - [Built with](#built-with)
 - [Author](#author)
@@ -20,17 +19,6 @@ Users should be able to:
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
-
-### Screenshot
-
-- ![search-countries-desktop-light](./public/sc1.png)
-- ![search-countries-desktop-dark](./public/sc2.png)
-- ![search-countries-desktop-country-details-light](./public/sc3.png)
-- ![search-countries-desktop-country-details-dark](./public/sc4.png)
-- ![search-countries-mobile-light](./public/sc5.png)
-- ![search-countries-mobile-dark](./public/sc6.png)
-- ![search-countries-mobile-country-details-light](./public/sc7.png)
-- ![search-countries-mobile-country-details-dark](./public/sc8.png)
 
 ### Links
 
