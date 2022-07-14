@@ -1,9 +1,9 @@
-import {Box, SimpleGrid} from '@chakra-ui/react'
 import * as React from 'react'
 import CountryCard from '../components/CountryCard'
 import Header from '../components/Header'
 import {useGetAllCountries} from '../data/use-countries'
 import {useCountryStore} from '../store/country'
+import {Box, SimpleGrid} from '@chakra-ui/react'
 
 export default function Home() {
   const {countries, error} = useGetAllCountries()
@@ -15,7 +15,7 @@ export default function Home() {
     if (countries) {
       const arr: any = []
       countries.forEach((country: any) => {
-        arr.push({name: country.name, code: country.alpha3Code})
+        arr.push({name: country.name.official, code: country.alpha3Code})
       })
       setBorderCountries(arr)
     }
@@ -43,10 +43,12 @@ export default function Home() {
             }
           })
           .filter((country: any) =>
-            country.name.toLowerCase().includes(searchTerm.toLowerCase()),
+            country.name.official
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase()),
           )
           .map((country: any) => (
-            <CountryCard country={country} key={country.name} />
+            <CountryCard country={country} key={country.name.official} />
           ))}
       </SimpleGrid>
     </Box>

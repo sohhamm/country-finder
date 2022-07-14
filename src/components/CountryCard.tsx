@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 export default function CountryCard({country}: any) {
   return (
-    <Link to={`/${country.name}`}>
+    <Link to={`/${country.name.official}`}>
       <Flex
         direction="column"
         justify="center"
@@ -13,7 +13,7 @@ export default function CountryCard({country}: any) {
         boxShadow="base"
       >
         <Image
-          src={country.flag}
+          src={country.flags.png}
           w="100%"
           h="170px"
           roundedTop="md"
@@ -22,7 +22,7 @@ export default function CountryCard({country}: any) {
         />
         <Flex direction="column" w="100%" px="1.5em" py="1.5em">
           <Text fontWeight="bold" size="lg" mb="1em">
-            {country.name}
+            {country.name.official}
           </Text>
 
           <Text>Population: {country.population}</Text>

@@ -1,12 +1,13 @@
 import useSWR from 'swr'
-
-const URL = 'https://restcountries.com/v2/all'
+import {API} from '../utils'
 
 const getAllCountries = async () => {
   try {
-    return await (await fetch(URL)).json()
+    const resp = await fetch(API + '/all')
+    if (resp.ok) return resp.json()
+    Promise.reject(resp)
   } catch (err) {
-    throw new Error('error getting countries')
+    console.error(err)
   }
 }
 
