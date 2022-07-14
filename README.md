@@ -1,17 +1,16 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
+# Country Finder App
 
-This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+Search for any country and get it's information 🔎
 
 ## Table of contents
 
-- [The challenge](#the-challenge)
+- [Stories](#stories)
 - [Screenshot](#screenshot)
 - [Links](#links)
 - [Built with](#built-with)
-- [Continued development](#continued-development)
 - [Author](#author)
 
-### The challenge
+### Stories
 
 Users should be able to:
 
@@ -20,7 +19,7 @@ Users should be able to:
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode _(optional)_
+- Toggle the color scheme between light and dark mode
 
 ### Screenshot
 
@@ -48,15 +47,10 @@ Users should be able to:
 - [Chakra UI](https://chakra-ui.com/) - For styling
 - [Search countries API](https://restcountries.eu/)
 - [Netlify](https://www.netlify.com/) - Deployment
-- Mobile-first workflow
-
-### Continued development
-
-Feel free to open issues for any bugs or directly contribute to the project.
-I will focus on solving more user stories and improving the UX.
 
 ## Author
 
 - Instagram - [@codebandit](https://www.instagram.com/codebandit/)
 - LinkedIN - [Soham Sarkar](https://www.linkedin.com/in/sohhamm/)
 - Twitter - [@sohhamm\_](https://www.twitter.com/sohhamm_)
+- Personal Site - [soham sarkar](https://sohamsarkar.com)

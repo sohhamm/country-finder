@@ -17,19 +17,19 @@ import {
   Button,
   InputRightElement,
   useMediaQuery,
-} from '@chakra-ui/react';
-import React from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { HiChevronDown } from 'react-icons/hi';
-import { MdClose } from 'react-icons/md';
-import { useCountryStore } from '../store/country-store';
+} from '@chakra-ui/react'
+import React from 'react'
+import {AiOutlineSearch} from 'react-icons/ai'
+import {HiChevronDown} from 'react-icons/hi'
+import {MdClose} from 'react-icons/md'
+import {useCountryStore} from '../store/country'
 
 export default function Header() {
-  const setRegionFilter = useCountryStore((state) => state.setRegionFilter);
-  const regionFilter = useCountryStore((state) => state.regionFilter);
-  const searchTerm = useCountryStore((state) => state.searchTerm);
-  const setSearchTerm = useCountryStore((state) => state.setSearchTerm);
-  const [isMobile] = useMediaQuery('(max-width: 450px)');
+  const setRegionFilter = useCountryStore(state => state.setRegionFilter)
+  const regionFilter = useCountryStore(state => state.regionFilter)
+  const searchTerm = useCountryStore(state => state.searchTerm)
+  const setSearchTerm = useCountryStore(state => state.setSearchTerm)
+  const [isMobile] = useMediaQuery('(max-width: 450px)')
 
   return (
     <Flex
@@ -49,7 +49,7 @@ export default function Header() {
           h="50px"
           mr={isMobile ? 8 : 1}
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e: any) => setSearchTerm(e.target.value)}
           fontFamily="Poppins, sans serif"
         />
         {searchTerm ? (
@@ -94,5 +94,5 @@ export default function Header() {
         </MenuList>
       </Menu>
     </Flex>
-  );
+  )
 }

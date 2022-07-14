@@ -11,7 +11,7 @@ import React from 'react'
 import {Link, useParams} from 'react-router-dom'
 import {useCountry} from '../data/use-country'
 import {MdKeyboardBackspace} from 'react-icons/md'
-import {useCountryStore} from '../store/country-store'
+import {useCountryStore} from '../store/country'
 
 export default function CountryDetails() {
   const [borders, setBorders] = React.useState<any>([])

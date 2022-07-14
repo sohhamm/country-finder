@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "name": "search-countries",
+  "version": "2.0.0",
+  "name": "country-finder-app",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

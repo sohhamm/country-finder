@@ -3,7 +3,7 @@ import * as React from 'react'
 import CountryCard from '../components/CountryCard'
 import Header from '../components/Header'
 import {useGetAllCountries} from '../data/use-countries'
-import {useCountryStore} from '../store/country-store'
+import {useCountryStore} from '../store/country'
 
 export default function Home() {
   const {countries, error} = useGetAllCountries()
