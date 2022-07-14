@@ -41,13 +41,7 @@ export default function CountryDetails() {
 
   if (isMobile)
     return (
-      <Flex
-        direction="column"
-        align="center"
-        w="100%"
-        fontFamily="Poppins, sans serif"
-        px="1em"
-      >
+      <Flex direction="column" align="center" w="100%" px="1em">
         <Flex w="100%" my="2em">
           <Link to="/">
             <Button
@@ -60,35 +54,35 @@ export default function CountryDetails() {
           </Link>
         </Flex>
         <Image src={country[0].flag} />
-        <Heading mt={8} mb={6} w="100%" fontFamily="Poppins, sans serif">
+        <Heading mt={8} mb={6} w="100%">
           {country[0].name}
         </Heading>
-        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
+        <Text mb={2} w="100%">
           Native name: {country[0].nativeName}
         </Text>
-        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
+        <Text mb={2} w="100%">
           Population: {country[0].population}
         </Text>
-        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
+        <Text mb={2} w="100%">
           Region: {country[0].region}
         </Text>
 
-        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
+        <Text mb={2} w="100%">
           Sub Region: {country[0].subregion}
         </Text>
-        <Text w="100%" mb={12} fontFamily="Poppins, sans serif">
+        <Text w="100%" mb={12}>
           Capital: {country[0].capital}
         </Text>
-        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
+        <Text mb={2} w="100%">
           Top level domain: {country[0].topLevelDomain[0]}
         </Text>
-        <Text mb={2} w="100%" fontFamily="Poppins, sans serif">
+        <Text mb={2} w="100%">
           Currencies:{` `}
           {country[0].currencies.map((el: any, idx: number) => (
             <span key={idx}>{el.name}</span>
           ))}
         </Text>
-        <Text w="100%" mb={8} fontFamily="Poppins, sans serif">
+        <Text w="100%" mb={8}>
           Languages:{` `}
           {country[0].languages.map((el: any, idx: number) => (
             <span key={idx}>
@@ -98,19 +92,12 @@ export default function CountryDetails() {
           ))}
         </Text>
         <Flex w="100%" mt={4} align="center" direction="column">
-          <Text w="100%" fontFamily="Poppins, sans serif">
-            Border Countries:
-          </Text>
+          <Text w="100%">Border Countries:</Text>
           <Flex px="1em" flexWrap="wrap">
             {borders.map(
               (border: {name: string; code: string}, idx: number) => (
                 <Link to={`/${border.name}`} key={idx}>
-                  <Button
-                    key={idx}
-                    ml={2}
-                    fontFamily="Poppins, sans serif"
-                    mb={2}
-                  >
+                  <Button key={idx} ml={2} mb={2}>
                     {border.name}
                   </Button>
                 </Link>
@@ -122,19 +109,13 @@ export default function CountryDetails() {
     )
 
   return (
-    <Flex
-      direction="column"
-      align="center"
-      w="100%"
-      fontFamily="Poppins, sans serif"
-    >
+    <Flex direction="column" align="center" w="100%">
       <Flex w="100%" my="3em" px="4em">
         <Link to="/">
           <Button
             leftIcon={<Icon as={MdKeyboardBackspace} boxSize={6} />}
             boxShadow="base"
             w={32}
-            fontFamily="Poppins, sans serif"
           >
             Back
           </Button>
@@ -147,39 +128,29 @@ export default function CountryDetails() {
           mr="2em"
           ml={country[0].borders?.length > 5 ? '8em' : ''}
         >
-          <Heading mt={8} mb={2} fontFamily="Poppins, sans serif">
+          <Heading mt={8} mb={2}>
             {country[0].name}
           </Heading>
           <Flex direction="row" w="100%" mb={2}>
             <Flex direction="column" w="50%" mt={5} mr={16}>
-              <Text mb={2} fontFamily="Poppins, sans serif">
-                Native name: {country[0].nativeName}
-              </Text>
-              <Text mb={2} fontFamily="Poppins, sans serif">
-                Population: {country[0].population}
-              </Text>
-              <Text mb={2} fontFamily="Poppins, sans serif">
-                Region: {country[0].region}
-              </Text>
+              <Text mb={2}>Native name: {country[0].nativeName}</Text>
+              <Text mb={2}>Population: {country[0].population}</Text>
+              <Text mb={2}>Region: {country[0].region}</Text>
 
-              <Text mb={2} fontFamily="Poppins, sans serif">
-                Sub Region: {country[0].subregion}
-              </Text>
-              <Text fontFamily="Poppins, sans serif">
-                Capital: {country[0].capital}
-              </Text>
+              <Text mb={2}>Sub Region: {country[0].subregion}</Text>
+              <Text>Capital: {country[0].capital}</Text>
             </Flex>
             <Flex direction="column" w="50%" mt={5} pr={4}>
-              <Text mb={2} fontFamily="Poppins, sans serif">
+              <Text mb={2}>
                 Top level domain: {country[0].topLevelDomain[0]}
               </Text>
-              <Text mb={2} fontFamily="Poppins, sans serif">
+              <Text mb={2}>
                 Currencies:{` `}
                 {country[0].currencies.map((el: any, idx: number) => (
                   <span key={idx}>{el.name}</span>
                 ))}
               </Text>
-              <Text fontFamily="Poppins, sans serif">
+              <Text>
                 Languages:{` `}
                 {country[0].languages.map((el: any, idx: number) => (
                   <span key={idx}>
@@ -197,12 +168,7 @@ export default function CountryDetails() {
                 {borders.map(
                   (border: {name: string; code: string}, idx: number) => (
                     <Link to={`/${border.name}`} key={idx}>
-                      <Button
-                        ml={2}
-                        fontFamily="Poppins, sans serif"
-                        fontWeight="normal"
-                        mb={2}
-                      >
+                      <Button ml={2} fontWeight="normal" mb={2}>
                         {border.name}
                       </Button>
                     </Link>

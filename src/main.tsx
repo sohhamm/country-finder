@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import theme from './styles/chakra'
 import './index.css'
 import {ChakraProvider} from '@chakra-ui/react'
 import {BrowserRouter} from 'react-router-dom'
-import {theme} from './styles/chakra'
-import '@fontsource/poppins/400.css'
-import '@fontsource/poppins/600.css'
-import '@fontsource/poppins/700.css'
+import '@fontsource/poppins'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
