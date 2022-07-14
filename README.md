@@ -22,8 +22,8 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Search Countries](https://search-countries-react.netlify.app/)
-- Solution URL: [Source Code](https://github.com/sohhamm/search-countries-react)
+- Live Site URL: [Search Countries](https://awesome-country-finder.netlify.app)
+- Solution URL: [Source Code](https://github.com/sohhamm/country-finder)
 
 ### Built with
 

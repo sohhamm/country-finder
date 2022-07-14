@@ -1,4 +1,3 @@
-import './App.css'
 import CountryDetails from './pages/CountryDetails'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'

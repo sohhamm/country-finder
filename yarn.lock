@@ -1316,6 +1316,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/poppins@npm:^4.5.8":
+  version: 4.5.8
+  resolution: "@fontsource/poppins@npm:4.5.8"
+  checksum: 00ece7dbe26970d2431b741f027b1e6889169b93b83cb3d64a1290a5bba18bd0798cdc2be3c20b346623f25ee4a1389869becd5f2ec766405d60f22357751d32
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -1827,13 +1834,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"country-finder-app@workspace:.":
+"country-finder@workspace:.":
   version: 0.0.0-use.local
-  resolution: "country-finder-app@workspace:."
+  resolution: "country-finder@workspace:."
   dependencies:
     "@chakra-ui/react": ^2.2.4
     "@emotion/react": ^11
     "@emotion/styled": ^11
+    "@fontsource/poppins": ^4.5.8
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.6
     "@vitejs/plugin-react": ^2.0.0
@@ -1843,7 +1851,6 @@ __metadata:
     react-icons: ^4.4.0
     react-router-dom: ^6.3.0
     swr: ^1.3.0
-    typeface-poppins: ^1.1.13
     typescript: ^4.7.4
     vite: ^3.0.0
     zustand: ^4.0.0-rc.1
@@ -3428,13 +3435,6 @@ __metadata:
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
-  languageName: node
-  linkType: hard
-
-"typeface-poppins@npm:^1.1.13":
-  version: 1.1.13
-  resolution: "typeface-poppins@npm:1.1.13"
-  checksum: 8c39d59c49d83e34be14e57303f13b0f66a6d0531d8a3e93f299bd354ac8633ba73a72f0e46c3a7a1428f3e035f8727802a4cd3b4b91b0ccb3412b6504950d28
   languageName: node
   linkType: hard
 
