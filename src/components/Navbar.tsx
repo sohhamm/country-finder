@@ -17,7 +17,7 @@ export default function Navbar() {
       align="center"
       px={['1em', '3em', '4em']}
       py="1.5em"
-      boxShadow="0px 0px 5px 0px gray"
+      boxShadow="0px 0px 2px 0px gray"
       pos="sticky"
       top={0}
       bgColor="#fff"

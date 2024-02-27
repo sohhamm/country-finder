@@ -41,7 +41,6 @@ export default function Header() {
           <Icon as={AiOutlineSearch} boxSize={6} />
         </InputLeftElement>
         <Input
-          boxShadow="base"
           type="text"
           placeholder="Search for a country..."
           h="50px"

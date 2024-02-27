@@ -1,5 +1,4 @@
 import {Flex, Image, Text} from '@chakra-ui/react'
-import React from 'react'
 import {Link} from 'react-router-dom'
 
 export default function CountryCard({country}: any) {
@@ -24,12 +23,15 @@ export default function CountryCard({country}: any) {
           <Text fontWeight="bold" size="lg" mb="1em">
             {country.name.official}
           </Text>
-
-          <Text>Population: {country.population}</Text>
-
-          <Text>Region: {country.region}</Text>
-
-          <Text>Capital: {country.capital}</Text>
+          <Text>
+            Population: <span>{country.population}</span>
+          </Text>
+          <Text>
+            Region: <span>{country.region}</span>
+          </Text>
+          <Text>
+            Capital: <span>{country.capital}</span>
+          </Text>
         </Flex>
       </Flex>
     </Link>
