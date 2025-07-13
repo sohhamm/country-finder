@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {Link} from '@tanstack/react-router'
 import styles from './CountryCard.module.css'
 
 export default function CountryCard({country}: any) {

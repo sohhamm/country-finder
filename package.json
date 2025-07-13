@@ -9,14 +9,17 @@
   "dependencies": {
     "@ark-ui/react": "^5.16.1",
     "@fontsource/poppins": "^5.2.6",
+    "@tanstack/react-query": "^5.83.0",
+    "@tanstack/react-query-devtools": "^5.83.0",
+    "@tanstack/react-router": "^1.127.3",
+    "@tanstack/router-devtools": "^1.127.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-icons": "^5.5.0",
-    "react-router-dom": "^7.6.3",
-    "swr": "^2.3.4",
     "zustand": "^5.0.6"
   },
   "devDependencies": {
+    "@tanstack/router-cli": "^1.127.5",
+    "@tanstack/router-plugin": "^1.127.5",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",

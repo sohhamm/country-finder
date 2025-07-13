@@ -1,4 +1,4 @@
-export const API = `https://restcountries.com/v3.1`
+export const API_BASE_URL = 'https://restcountries.com/v3.1'
 
 // * to directly test in browser window
 declare global {
