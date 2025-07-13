@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
 type Regions = 'Africa' | 'Americas' | 'Asia' | 'Oceania' | 'Europe';
 
@@ -11,7 +11,7 @@ type State = {
   setBorderCountries: (value: any) => void;
 };
 
-export const useCountryStore = create<State>((set, _get) => ({
+export const useCountryStore = create<State>()((set, _get) => ({
   regionFilter: null,
   setRegionFilter: (regionFilter) => set({ regionFilter }),
   searchTerm: '',

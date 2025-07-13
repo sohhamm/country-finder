@@ -9,7 +9,7 @@ const getCountryByName = async (url: string) => {
 }
 
 export const useCountry = (name: string) => {
-  const url = `https://restcountries.com/v2/name/${name}?fullText=true`
+  const url = `https://restcountries.com/v3.1/name/${name}?fullText=true`
   const {data, error} = useSWR(url, getCountryByName)
 
   return {country: data, error}

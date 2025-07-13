@@ -3,7 +3,7 @@ import {API} from '../utils'
 
 const getAllCountries = async () => {
   try {
-    const resp = await fetch(API + '/all')
+    const resp = await fetch(API + '/all?fields=name,flags,population,region,capital,borders')
     if (resp.ok) return resp.json()
     Promise.reject(resp)
   } catch (err) {

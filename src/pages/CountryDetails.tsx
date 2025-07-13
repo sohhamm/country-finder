@@ -1,16 +1,15 @@
-import {Button, Flex, Heading, Icon, Image, Text, useMediaQuery} from '@chakra-ui/react'
 import React from 'react'
 import {Link, useParams} from 'react-router-dom'
 import {useCountry} from '../data/use-country'
 import {MdKeyboardBackspace} from 'react-icons/md'
 import {useCountryStore} from '../store/country'
+import styles from './CountryDetails.module.css'
 
 export default function CountryDetails() {
   const [borders, setBorders] = React.useState<any>([])
   const {slug}: any = useParams()
   const {country, error} = useCountry(slug)
-  const [isMobile] = useMediaQuery('(max-width: 441px)')
-  const borderCountries = useCountryStore(state => state.borderCountries)
+  const borderCountries = useCountryStore((state: any) => state.borderCountries)
 
   React.useEffect(() => {
     if (country) {
@@ -21,140 +20,91 @@ export default function CountryDetails() {
 
   if (error)
     return (
-      <p>
-        error fetching data
-        <Button onClick={() => location.reload()}> Refresh </Button>
+      <p className={styles.error}>
+        Error fetching data
+        <button className={styles.refreshButton} onClick={() => location.reload()}>
+          Refresh
+        </button>
       </p>
     )
 
-  if (!country) return <p>loading...</p>
-
-  if (isMobile)
-    return (
-      <Flex direction='column' align='center' w='100%' px='1em'>
-        <Flex w='100%' my='2em'>
-          <Link to='/'>
-            <Button
-              leftIcon={<Icon as={MdKeyboardBackspace} boxSize={6} />}
-              boxShadow='base'
-              w={32}
-            >
-              Back
-            </Button>
-          </Link>
-        </Flex>
-        <Image src={country[0].flag} />
-        <Heading mt={8} mb={6} w='100%'>
-          {country[0].name}
-        </Heading>
-        <Text mb={2} w='100%'>
-          Native name: {country[0].nativeName}
-        </Text>
-        <Text mb={2} w='100%'>
-          Population: {country[0].population}
-        </Text>
-        <Text mb={2} w='100%'>
-          Region: {country[0].region}
-        </Text>
-
-        <Text mb={2} w='100%'>
-          Sub Region: {country[0].subregion}
-        </Text>
-        <Text w='100%' mb={12}>
-          Capital: {country[0].capital}
-        </Text>
-        <Text mb={2} w='100%'>
-          Top level domain: {country[0].topLevelDomain[0]}
-        </Text>
-        <Text mb={2} w='100%'>
-          Currencies:{` `}
-          {country[0].currencies.map((el: any, idx: number) => (
-            <span key={idx}>{el.name}</span>
-          ))}
-        </Text>
-        <Text w='100%' mb={8}>
-          Languages:{` `}
-          {country[0].languages.map((el: any, idx: number) => (
-            <span key={idx}>
-              {el.name}
-              {idx === country[0].languages.length - 1 ? '' : ', '}
-            </span>
-          ))}
-        </Text>
-        <Flex w='100%' mt={4} align='center' direction='column'>
-          <Text w='100%'>Border Countries:</Text>
-          <Flex px='1em' flexWrap='wrap'>
-            {borders.map((border: {name: string; code: string}, idx: number) => (
-              <Link to={`/${border.name}`} key={idx}>
-                <Button key={idx} ml={2} mb={2}>
-                  {border.name}
-                </Button>
-              </Link>
-            ))}
-          </Flex>
-        </Flex>
-      </Flex>
-    )
+  if (!country) return <p className={styles.loading}>Loading...</p>
 
   return (
-    <Flex direction='column' align='center' w='100%'>
-      <Flex w='100%' my='3em' px='4em'>
-        <Link to='/'>
-          <Button leftIcon={<Icon as={MdKeyboardBackspace} boxSize={6} />} boxShadow='base' w={32}>
-            Back
-          </Button>
+    <div className={styles.container}>
+      <div className={styles.backButtonContainer}>
+        <Link to='/' className={styles.backButton}>
+          <MdKeyboardBackspace className={styles.backIcon} />
+          Back
         </Link>
-      </Flex>
-      <Flex w='100%' justify='space-between' pl='4em' pr='3em'>
-        <Image src={country[0].flag} w='450px' h='350px' />
-        <Flex direction='column' mr='2em' ml={country[0].borders?.length > 5 ? '8em' : ''}>
-          <Heading mt={8} mb={2}>
-            {country[0].name}
-          </Heading>
-          <Flex direction='row' w='100%' mb={2}>
-            <Flex direction='column' w='50%' mt={5} mr={16}>
-              <Text mb={2}>Native name: {country[0].nativeName}</Text>
-              <Text mb={2}>Population: {country[0].population}</Text>
-              <Text mb={2}>Region: {country[0].region}</Text>
-
-              <Text mb={2}>Sub Region: {country[0].subregion}</Text>
-              <Text>Capital: {country[0].capital}</Text>
-            </Flex>
-            <Flex direction='column' w='50%' mt={5} pr={4}>
-              <Text mb={2}>Top level domain: {country[0].topLevelDomain[0]}</Text>
-              <Text mb={2}>
+      </div>
+      <div className={styles.content}>
+        <img 
+          src={country[0].flags.png} 
+          alt={`Flag of ${country[0].name.common}`}
+          className={styles.flagImage}
+        />
+        <div className={styles.details}>
+          <h1 className={styles.title}>
+            {country[0].name.common}
+          </h1>
+          <div className={styles.infoGrid}>
+            <div className={styles.infoColumn}>
+              <p className={styles.infoItem}>
+                Native name: <span>{Object.values(country[0].name.nativeName)[0]?.common || country[0].name.common}</span>
+              </p>
+              <p className={styles.infoItem}>
+                Population: <span>{country[0].population.toLocaleString()}</span>
+              </p>
+              <p className={styles.infoItem}>
+                Region: <span>{country[0].region}</span>
+              </p>
+              <p className={styles.infoItem}>
+                Sub Region: <span>{country[0].subregion}</span>
+              </p>
+              <p className={styles.infoItem}>
+                Capital: <span>{country[0].capital?.[0] || 'N/A'}</span>
+              </p>
+            </div>
+            <div className={styles.infoColumn}>
+              <p className={styles.infoItem}>
+                Top level domain: <span>{country[0].tld?.[0] || 'N/A'}</span>
+              </p>
+              <p className={styles.infoItem}>
                 Currencies:{` `}
-                {country[0].currencies.map((el: any, idx: number) => (
-                  <span key={idx}>{el.name}</span>
-                ))}
-              </Text>
-              <Text>
+                <span>
+                  {Object.values(country[0].currencies || {}).map((currency: any, idx: number) => (
+                    <span key={idx}>{currency.name}</span>
+                  ))}
+                </span>
+              </p>
+              <p className={styles.infoItem}>
                 Languages:{` `}
-                {country[0].languages.map((el: any, idx: number) => (
-                  <span key={idx}>
-                    {el.name}
-                    {idx === country[0].languages.length - 1 ? '' : ', '}
-                  </span>
-                ))}
-              </Text>
-            </Flex>
-          </Flex>
-          {country[0].borders?.length ? (
-            <Flex w='100%' mt={4} align='center'>
-              <Text fontWeight='semibold'>Border Countries: </Text>
-              <Flex flexWrap='wrap'>
+                <span>
+                  {Object.values(country[0].languages || {}).map((language: any, idx: number) => (
+                    <span key={idx}>
+                      {language}
+                      {idx === Object.values(country[0].languages || {}).length - 1 ? '' : ', '}
+                    </span>
+                  ))}
+                </span>
+              </p>
+            </div>
+          </div>
+          {country[0].borders?.length && borders.length > 0 ? (
+            <div className={styles.bordersContainer}>
+              <p className={styles.bordersLabel}>Border Countries:</p>
+              <div className={styles.bordersList}>
                 {borders.map((border: {name: string; code: string}, idx: number) => (
-                  <Link to={`/${border.name}`} key={idx}>
-                    <Button ml={2} fontWeight='normal' mb={2}>
-                      {border.name}
-                    </Button>
+                  <Link to={`/${border.name}`} key={idx} className={styles.borderButton}>
+                    {border.name}
                   </Link>
                 ))}
-              </Flex>
-            </Flex>
+              </div>
+            </div>
           ) : null}
-        </Flex>
-      </Flex>
-    </Flex>
+        </div>
+      </div>
+    </div>
   )
 }

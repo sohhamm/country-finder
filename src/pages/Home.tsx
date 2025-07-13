@@ -3,13 +3,13 @@ import CountryCard from '../components/CountryCard'
 import Header from '../components/Header'
 import {useGetAllCountries} from '../data/use-countries'
 import {useCountryStore} from '../store/country'
-import {Box, SimpleGrid} from '@chakra-ui/react'
+import styles from './Home.module.css'
 
 export default function Home() {
   const {countries, error} = useGetAllCountries()
-  const regionFilter = useCountryStore(state => state.regionFilter)
-  const searchTerm = useCountryStore(state => state.searchTerm)
-  const setBorderCountries = useCountryStore(state => state.setBorderCountries)
+  const regionFilter = useCountryStore((state: any) => state.regionFilter)
+  const searchTerm = useCountryStore((state: any) => state.searchTerm)
+  const setBorderCountries = useCountryStore((state: any) => state.setBorderCountries)
 
   React.useEffect(() => {
     if (countries) {
@@ -21,19 +21,13 @@ export default function Home() {
     }
   }, [countries])
 
-  if (error) return <p>error fetching data..</p>
-  if (!countries) return <p>loading...</p>
+  if (error) return <p className={styles.error}>Error fetching data...</p>
+  if (!countries) return <p className={styles.loading}>Loading...</p>
 
   return (
-    <Box>
+    <div className={styles.container}>
       <Header />
-      <SimpleGrid
-        columns={{sm: 1, md: 3, lg: 4}}
-        spacing={16}
-        mx="auto"
-        w="100%"
-        px={['2em', '3em', '4em']}
-      >
+      <div className={styles.grid}>
         {countries
           .filter((country: any) => {
             if (regionFilter) {
@@ -50,7 +44,7 @@ export default function Home() {
           .map((country: any) => (
             <CountryCard country={country} key={country.name.official} />
           ))}
-      </SimpleGrid>
-    </Box>
+      </div>
+    </div>
   )
 }

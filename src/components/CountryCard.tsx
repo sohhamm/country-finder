@@ -1,39 +1,29 @@
-import {Flex, Image, Text} from '@chakra-ui/react'
 import {Link} from 'react-router-dom'
+import styles from './CountryCard.module.css'
 
 export default function CountryCard({country}: any) {
   return (
-    <Link to={`/${country.name.official}`}>
-      <Flex
-        direction="column"
-        justify="center"
-        align="center"
-        rounded="md"
-        boxShadow="base"
-      >
-        <Image
-          src={country.flags.png}
-          w="100%"
-          h="170px"
-          roundedTop="md"
-          objectFit="cover"
-          loading="lazy"
-        />
-        <Flex direction="column" w="100%" px="1.5em" py="1.5em">
-          <Text fontWeight="bold" size="lg" mb="1em">
-            {country.name.official}
-          </Text>
-          <Text>
-            Population: <span>{country.population}</span>
-          </Text>
-          <Text>
-            Region: <span>{country.region}</span>
-          </Text>
-          <Text>
-            Capital: <span>{country.capital}</span>
-          </Text>
-        </Flex>
-      </Flex>
+    <Link to={`/${country.name.official}`} className={styles.card}>
+      <img
+        src={country.flags.png}
+        alt={`Flag of ${country.name.official}`}
+        className={styles.flagImage}
+        loading="lazy"
+      />
+      <div className={styles.content}>
+        <h3 className={styles.title}>
+          {country.name.official}
+        </h3>
+        <p className={styles.info}>
+          Population: <span>{country.population.toLocaleString()}</span>
+        </p>
+        <p className={styles.info}>
+          Region: <span>{country.region}</span>
+        </p>
+        <p className={styles.info}>
+          Capital: <span>{country.capital}</span>
+        </p>
+      </div>
     </Link>
   )
 }

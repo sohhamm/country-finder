@@ -1,43 +1,50 @@
-import {
-  Flex,
-  Heading,
-  IconButton,
-  useColorMode,
-  useColorModeValue,
-} from '@chakra-ui/react'
+import {useState, useEffect} from 'react'
 import {FaMoon, FaSun} from 'react-icons/fa'
+import styles from './Navbar.module.css'
 
 export default function Navbar() {
-  const SwitchIcon = useColorModeValue(FaMoon, FaSun)
-  const colorMode = useColorModeValue('dark', 'light')
-  const {toggleColorMode: toggleMode} = useColorMode()
+  const [isDark, setIsDark] = useState(false)
+  
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDark(true)
+      document.documentElement.setAttribute('data-theme', 'dark')
+    }
+  }, [])
+  
+  const toggleTheme = () => {
+    const newTheme = !isDark
+    setIsDark(newTheme)
+    
+    if (newTheme) {
+      document.documentElement.setAttribute('data-theme', 'dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      document.documentElement.removeAttribute('data-theme')
+      localStorage.setItem('theme', 'light')
+    }
+  }
+  
+  const SwitchIcon = isDark ? FaSun : FaMoon
+  const colorMode = isDark ? 'light' : 'dark'
+  
   return (
-    <Flex
-      justify="space-between"
-      align="center"
-      px={['1em', '3em', '4em']}
-      py="1.5em"
-      boxShadow="0px 0px 2px 0px gray"
-      pos="sticky"
-      top={0}
-      bgColor="#fff"
-      zIndex={3}
-    >
-      <Heading size="md" fontWeight="bold">
+    <div className={styles.navbar}>
+      <h1 className={styles.heading}>
         🌏 Where in the world?
-      </Heading>
-      <Flex align="center" justify="center">
-        <IconButton
-          size="md"
-          fontSize="lg"
+      </h1>
+      <div className={styles.themeToggle}>
+        <button
+          className={styles.iconButton}
           aria-label={`Switch to ${colorMode} mode`}
-          variant="ghost"
-          color="current"
-          ml={{base: '0', md: '3'}}
-          onClick={toggleMode}
-          icon={<SwitchIcon />}
-        />
-      </Flex>
-    </Flex>
+          onClick={toggleTheme}
+        >
+          <SwitchIcon />
+        </button>
+      </div>
+    </div>
   )
 }
