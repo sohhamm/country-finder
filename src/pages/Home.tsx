@@ -1,15 +1,17 @@
 import * as React from 'react'
+import {useSearch} from '@tanstack/react-router'
 import CountryCard from '../components/CountryCard'
 import Header from '../components/Header'
+import AdvancedFilters from '../components/AdvancedFilters'
 import {useCountries} from '../hooks/useCountries'
 import {useCountryStore} from '../store/country'
-import type {Country} from '../types/types'
+import {getFilteredAndSortedCountries} from '../utils/countryFilters'
+import type {Country, FilterOptions} from '../types/types'
 import styles from './Home.module.css'
 
 export default function Home() {
   const {data: countries, error, isLoading} = useCountries()
-  const regionFilter = useCountryStore((state: any) => state.regionFilter)
-  const searchTerm = useCountryStore((state: any) => state.searchTerm)
+  const search = useSearch({from: '/'}) as FilterOptions
   const setBorderCountries = useCountryStore((state: any) => state.setBorderCountries)
 
   React.useEffect(() => {
@@ -22,6 +24,11 @@ export default function Home() {
     }
   }, [countries, setBorderCountries])
 
+  const filteredCountries = React.useMemo(() => {
+    if (!countries) return []
+    return getFilteredAndSortedCountries(countries, search)
+  }, [countries, search])
+
   if (error) return <p className={styles.error}>Error fetching data: {error.message}</p>
   if (isLoading) return <p className={styles.loading}>Loading...</p>
   if (!countries) return <p className={styles.error}>No countries found</p>
@@ -29,23 +36,21 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Header />
-      <div className={styles.grid}>
-        {countries
-          .filter((country: Country) => {
-            if (regionFilter) {
-              return country.region === regionFilter
-            }
-            return true
-          })
-          .filter((country: Country) =>
-            country.name.official
-              .toLowerCase()
-              .includes(searchTerm.toLowerCase()),
-          )
-          .map((country: Country) => (
-            <CountryCard country={country} key={country.name.official} />
-          ))}
+      <AdvancedFilters countries={countries} />
+      <div className={styles.resultsInfo}>
+        Showing {filteredCountries.length} of {countries.length} countries
       </div>
+      <div className={styles.grid}>
+        {filteredCountries.map((country: Country) => (
+          <CountryCard country={country} key={country.name.official} />
+        ))}
+      </div>
+      {filteredCountries.length === 0 && (
+        <div className={styles.noResults}>
+          <p>No countries match your current filters.</p>
+          <p>Try adjusting your search criteria.</p>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import {FaMoon, FaSun} from 'react-icons/fa'
+import {Link} from '@tanstack/react-router'
 import styles from './Navbar.module.css'
 
 export default function Navbar() {
@@ -33,9 +34,19 @@ export default function Navbar() {
   
   return (
     <div className={styles.navbar}>
-      <h1 className={styles.heading}>
-        🌏 Where in the world?
-      </h1>
+      <Link to="/" className={styles.logo}>
+        <h1 className={styles.heading}>
+          🌏 Where in the world?
+        </h1>
+      </Link>
+      <nav className={styles.navigation}>
+        <Link to="/" className={styles.navLink}>
+          Home
+        </Link>
+        <Link to="/rankings" className={styles.navLink}>
+          Rankings
+        </Link>
+      </nav>
       <div className={styles.themeToggle}>
         <button
           className={styles.iconButton}

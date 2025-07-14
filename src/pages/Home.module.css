@@ -20,6 +20,30 @@
   color: var(--color-text-muted);
 }
 
+.resultsInfo {
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.noResults {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--color-text-muted);
+}
+
+.noResults p {
+  margin: 0.5rem 0;
+  font-size: 1.125rem;
+}
+
+.noResults p:first-child {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
 /* Responsive grid */
 @media (min-width: 640px) {
   .grid {

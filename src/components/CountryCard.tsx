@@ -1,9 +1,10 @@
 import {Link} from '@tanstack/react-router'
+import {slugify} from '../utils/slugify'
 import styles from './CountryCard.module.css'
 
 export default function CountryCard({country}: any) {
   return (
-    <Link to={`/${country.name.official}`} className={styles.card}>
+    <Link to={`/${slugify(country.name.official)}`} className={styles.card}>
       <img
         src={country.flags.png}
         alt={`Flag of ${country.name.official}`}

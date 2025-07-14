@@ -10,11 +10,46 @@
   z-index: 3;
 }
 
+.logo {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo:hover .heading {
+  color: var(--color-primary);
+}
+
 .heading {
   font-size: 1.125rem;
   font-weight: bold;
   margin: 0;
   color: var(--color-text);
+  transition: color 0.2s;
+}
+
+.navigation {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+  background-color: var(--color-hover);
+}
+
+.navLink[data-status="active"] {
+  color: var(--color-primary);
+  background-color: var(--color-hover);
 }
 
 .themeToggle {
@@ -49,5 +84,14 @@
   
   .heading {
     font-size: 1rem;
+  }
+  
+  .navigation {
+    gap: 1rem;
+  }
+  
+  .navLink {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
   }
 }

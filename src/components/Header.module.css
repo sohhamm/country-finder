@@ -8,6 +8,7 @@
   box-shadow: var(--shadow-xs);
   margin-bottom: 2.5rem;
   gap: 1rem;
+  z-index: 2;
 }
 
 .searchContainer {

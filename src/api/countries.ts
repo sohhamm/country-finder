@@ -1,5 +1,6 @@
 import type {Country, ApiError} from '../types/types'
 import {API_BASE_URL} from '../utils'
+import {unslugify} from '../utils/slugify'
 
 class ApiClient {
   private baseUrl: string
@@ -38,12 +39,13 @@ class ApiClient {
   }
 
   async getAllCountries(): Promise<Country[]> {
-    const fields = 'name,flags,population,region,capital,borders,cca2,cca3'
+    const fields = 'name,flags,population,area,region,subregion,capital'
     return this.request<Country[]>(`/all?fields=${fields}`)
   }
 
-  async getCountryByName(name: string): Promise<Country[]> {
-    return this.request<Country[]>(`/name/${encodeURIComponent(name)}?fullText=true`)
+  async getCountryByName(nameOrSlug: string): Promise<Country[]> {
+    const searchName = unslugify(nameOrSlug)
+    return this.request<Country[]>(`/name/${encodeURIComponent(searchName)}?fullText=true`)
   }
 
   async getCountriesByCodes(codes: string[]): Promise<Country[]> {
